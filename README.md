@@ -6,8 +6,6 @@ Both the React Dev server and the Express server will detect changes and recompi
 
 The React source (`/src`) was built using `create-react-app@2.0.2` https://www.npmjs.com/package/create-react-app?activeTab=versions. If a more recent version is preferred, the `/src` folder can safely be over-written in its entirety as long as the start command is still `npm start`. 
 
-> **NOTE on overwriting `/src/`** - this folder contains a `Dockerfile` for the local development environment. If you replace the contents of `/src`, just be sure to keep that file or your dev web container won't spin up.
-
 ## Requisites
 * [Docker](https://docs.docker.com/)
 * npm >= 6
@@ -40,10 +38,10 @@ This is not an exhaustive list, just some worth noting
 ```
 +-- /api                          : Express Server
 |   +-- /.env.sample              : Sample .env
-|   +-- /Dockerfile               : Docker build spec for (local) Express
 +-- /src                          : React App Source
-|   +-- /Dockerfile               : Docker build spec for React (local) dev server
 +-- /Dockerfile                   : Docker Deploy build spec for React/Express/Heroku (production build/deploy)
++-- /Dockerfile.express           : Docker build spec for (local) Express
++-- /Dockerfile.react             : Docker build spec for React (local) dev server
 +-- /docker-compose.yml           : Full Stack Docker environment spec (local development)
 +-- /react.yml                    : [standalone] React Docker environment spec
 +-- /express.yml                  : [standalone] Express Docker environment spec
